@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { LaptopProduct } from '@/lib/types';
@@ -16,19 +15,6 @@ export default function HomeClient({ featuredLaptops }: HomeClientProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center text-slate-800 pb-20 relative w-full overflow-hidden">
-      {/* Hero Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/hero-background2.jpg"
-          alt="Hero Background"
-          fill
-          priority
-          className="object-cover opacity-40"
-        />
-        {/* Soft elegant gradient mask so it fades seamlessly into the white page */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/80 to-white" />
-      </div>
-
       {/* HERO SECTION */}
       <section className="relative w-full flex items-center justify-center overflow-hidden px-4 py-12 sm:py-24 z-10">
         {/* Glow backdrop grid */}
