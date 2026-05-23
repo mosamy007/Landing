@@ -54,6 +54,8 @@ export default function AdminDashboard() {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([]);
+  const [originalImages, setOriginalImages] = useState<string[]>([]);
+  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
   const [featured, setFeatured] = useState(false);
   
   // UI uploader state
@@ -239,6 +241,7 @@ export default function AdminDashboard() {
       }
 
       setImages((prev) => [...prev, ...uploadedUrls]);
+      setUploadedImages((prev) => [...prev, ...uploadedUrls]);
       setUploadProgress('All files uploaded successfully!');
       setTimeout(() => setUploadProgress(''), 1500);
     } catch (err: any) {
@@ -248,9 +251,15 @@ export default function AdminDashboard() {
     }
   };
 
-  // Remove uploaded image from index
-  const removeImage = (idxToRemove: number) => {
+  // Remove uploaded image from index (deletes immediately if it's a newly uploaded session file)
+  const removeImage = async (idxToRemove: number) => {
+    const targetUrl = images[idxToRemove];
     setImages((prev) => prev.filter((_, idx) => idx !== idxToRemove));
+
+    if (uploadedImages.includes(targetUrl)) {
+      setUploadedImages((prev) => prev.filter((url) => url !== targetUrl));
+      await productService.deleteProductImages([targetUrl]);
+    }
   };
 
   // 5. Open Create workflow
@@ -300,6 +309,8 @@ export default function AdminDashboard() {
     setPrice(laptop.price ? laptop.price.toString() : '');
     setDescription(laptop.description || '');
     setImages(laptop.images || []);
+    setOriginalImages(laptop.images || []);
+    setUploadedImages([]);
     setFeatured(laptop.featured || false);
     
     setErrorMessage(null);
@@ -328,8 +339,19 @@ export default function AdminDashboard() {
     setPrice('');
     setDescription('');
     setImages([]);
+    setOriginalImages([]);
+    setUploadedImages([]);
     setFeatured(false);
     setErrorMessage(null);
+  };
+
+  // Cancel edit/create and clean up uploaded images
+  const handleCancelForm = async () => {
+    if (uploadedImages.length > 0) {
+      await productService.deleteProductImages(uploadedImages);
+    }
+    setView('list');
+    resetFormFields();
   };
 
   // 7. Form Submission Handler
@@ -382,7 +404,16 @@ export default function AdminDashboard() {
         // Carry out edit update
         const updated = await productService.updateProduct(editingId, laptopPayload);
         setLaptops((prev) => prev.map((p) => (p.id === editingId ? updated : p)));
+
+        // Clean up deleted images from Supabase storage
+        const deletedExisting = originalImages.filter((img) => !images.includes(img));
+        if (deletedExisting.length > 0) {
+          await productService.deleteProductImages(deletedExisting);
+        }
       }
+      
+      setOriginalImages([]);
+      setUploadedImages([]);
       
       // Close forms and refresh catalog list
       setView('list');
@@ -617,7 +648,7 @@ export default function AdminDashboard() {
             <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
               <button
                 type="button"
-                onClick={() => setView('list')}
+                onClick={handleCancelForm}
                 className="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-500 hover:text-slate-700 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -944,10 +975,7 @@ export default function AdminDashboard() {
 
               <button
                 type="button"
-                onClick={() => {
-                  setView('list');
-                  resetFormFields();
-                }}
+                onClick={handleCancelForm}
                 className="px-5 py-3 rounded-xl font-bold border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors text-xs"
               >
                 Cancel / إلغاء

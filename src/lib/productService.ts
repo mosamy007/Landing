@@ -143,6 +143,36 @@ export const productService = {
     return data as LaptopProduct;
   },
 
+  /**
+   * Delete a list of image URLs from the Supabase Storage bucket.
+   */
+  async deleteProductImages(urls: string[]): Promise<void> {
+    try {
+      const filePathsToDelete: string[] = [];
+      
+      urls.forEach((url) => {
+        if (url.includes('/laptop-images/')) {
+          const pathParts = url.split('/laptop-images/');
+          if (pathParts.length > 1) {
+            filePathsToDelete.push(pathParts[1]);
+          }
+        }
+      });
+
+      if (filePathsToDelete.length > 0) {
+        console.log('Deleting images from storage:', filePathsToDelete);
+        const { error } = await supabase.storage
+          .from('laptop-images')
+          .remove(filePathsToDelete);
+        if (error) {
+          console.warn('Supabase storage remove returned error:', error.message);
+        }
+      }
+    } catch (err) {
+      console.warn('Failed to delete images from storage bucket:', err);
+    }
+  },
+
   async deleteProduct(id: string): Promise<void> {
     // 1. Fetch the product first to clean up its images from storage
     try {
@@ -153,23 +183,7 @@ export const productService = {
         .single();
 
       if (product && product.images && product.images.length > 0) {
-        const filePathsToDelete: string[] = [];
-        
-        product.images.forEach((url: string) => {
-          if (url.includes('/laptop-images/')) {
-            const pathParts = url.split('/laptop-images/');
-            if (pathParts.length > 1) {
-              filePathsToDelete.push(pathParts[1]);
-            }
-          }
-        });
-
-        if (filePathsToDelete.length > 0) {
-          console.log('Cleaning up product storage images:', filePathsToDelete);
-          await supabase.storage
-            .from('laptop-images')
-            .remove(filePathsToDelete);
-        }
+        await productService.deleteProductImages(product.images);
       }
     } catch (cleanupErr) {
       console.warn('Failed to delete associated product images from storage bucket:', cleanupErr);
