@@ -32,27 +32,40 @@
   background: #2563eb;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #f8fafc;
   color: #0f172a;
   font-family: var(--font-outfit), var(--font-inter), sans-serif;
-  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Premium Light Mode Glassmorphism Utility Classes */
+/* Premium Light Mode Glassmorphism Utility Classes (Performance-optimized for mobile WebKit) */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .glass-panel-heavy {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.98);
   border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+@media (min-width: 1024px) {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-panel-heavy {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
 }
 
 .glass-input {

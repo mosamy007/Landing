@@ -2,8 +2,9 @@ import React, { Suspense } from 'react';
 import FilterableCatalog from '@/components/FilterableCatalog';
 import { productService } from '@/lib/productService';
 
-// Disable layout static pre-generation to guarantee real-time updates
-export const dynamic = 'force-dynamic';
+// Enable Incremental Static Regeneration (ISR) with a 10s revalidation interval.
+// This guarantees instant initial page loads and caches data at the CDN edge.
+export const revalidate = 10;
 
 export default async function ProductsPage() {
   const products = await productService.getProducts();

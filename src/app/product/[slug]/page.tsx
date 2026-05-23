@@ -5,8 +5,9 @@ import { ShieldAlert, ArrowLeft } from 'lucide-react';
 import { productService } from '@/lib/productService';
 import ProductDetailsClient from '@/components/ProductDetailsClient';
 
-// Ensure the page dynamically fetches fresh product states
-export const dynamic = 'force-dynamic';
+// Enable Incremental Static Regeneration (ISR) with a 10s revalidation interval.
+// This guarantees instant initial page loads and caches data at the CDN edge.
+export const revalidate = 10;
 
 interface Props {
   params: Promise<{ slug: string }> | { slug: string };

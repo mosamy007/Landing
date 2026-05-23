@@ -22,9 +22,9 @@ export default function Footer() {
 
   return (
     <footer className="glass-panel-heavy border-t border-slate-200/60 relative z-10 overflow-hidden bg-white/60">
-      {/* Decorative gradient overlay */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[120px] rounded-full -mr-20 -mt-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/5 blur-[120px] rounded-full -ml-20 -mb-20 pointer-events-none" />
+      {/* Decorative gradient overlay (hidden on mobile for rendering speed) */}
+      <div className="hidden lg:block absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[120px] rounded-full -mr-20 -mt-20 pointer-events-none" />
+      <div className="hidden lg:block absolute bottom-0 left-0 w-80 h-80 bg-purple-500/5 blur-[120px] rounded-full -ml-20 -mb-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-slate-700">

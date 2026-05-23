@@ -66,9 +66,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#f8fafc] text-[#0f172a] bg-cyber-grid relative">
         <LanguageProvider>
-          {/* Ambient light glow circles */}
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-500/5 blur-[180px] rounded-full pointer-events-none z-0" />
-          <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-purple-500/5 blur-[180px] rounded-full pointer-events-none z-0" />
+          {/* Ambient light glow circles (hidden on mobile for rendering speed) */}
+          <div className="hidden lg:block absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-500/5 blur-[180px] rounded-full pointer-events-none z-0" />
+          <div className="hidden lg:block absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-purple-500/5 blur-[180px] rounded-full pointer-events-none z-0" />
           
           {/* Navigation header */}
           <Navbar />

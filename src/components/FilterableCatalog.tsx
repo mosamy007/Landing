@@ -374,17 +374,17 @@ export default function FilterableCatalog({ initialProducts }: FilterableCatalog
 
                    {/* Specs Quick Checklist */}
                   <div className="space-y-1.5 text-xs text-slate-500 border-t border-b border-slate-100 py-3 font-sans">
-                    <div className={`flex justify-between ${isRtl ? 'flex-row-reverse' : ''}`}>
-                      <span className="text-[9px] text-slate-400 font-bold uppercase">{t('processor')}</span>
-                      <span className="font-semibold text-slate-700 line-clamp-1 max-w-[130px]" dir="ltr">{product.processor.split(' (')[0]}</span>
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-[9px] text-slate-400 font-bold uppercase shrink-0">{t('processor')}</span>
+                      <span className="font-semibold text-slate-700 truncate text-right rtl:text-left flex-grow" dir="ltr">{product.processor.split(' (')[0]}</span>
                     </div>
-                    <div className={`flex justify-between ${isRtl ? 'flex-row-reverse' : ''}`}>
-                      <span className="text-[9px] text-slate-400 font-bold uppercase">{t('graphics')}</span>
-                      <span className="font-semibold text-slate-700 line-clamp-1 max-w-[130px]" dir="ltr">{product.graphics.split(' (')[0]}</span>
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-[9px] text-slate-400 font-bold uppercase shrink-0">{t('graphics')}</span>
+                      <span className="font-semibold text-slate-700 truncate text-right rtl:text-left flex-grow" dir="ltr">{product.graphics.split(' (')[0]}</span>
                     </div>
-                    <div className={`flex justify-between ${isRtl ? 'flex-row-reverse' : ''}`}>
-                      <span className="text-[9px] text-slate-400 font-bold uppercase">{t('ram_label')} / {t('storage_label')}</span>
-                      <span className="font-semibold text-slate-700" dir="ltr">{product.ram} / {product.storage}</span>
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-[9px] text-slate-400 font-bold uppercase shrink-0">{t('ram_label')} / {t('storage_label')}</span>
+                      <span className="font-semibold text-slate-700 truncate text-right rtl:text-left flex-grow" dir="ltr">{product.ram} / {product.storage}</span>
                     </div>
                   </div>
 

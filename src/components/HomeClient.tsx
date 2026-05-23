@@ -17,9 +17,9 @@ export default function HomeClient({ featuredLaptops }: HomeClientProps) {
     <div className="min-h-screen flex items-center justify-center text-slate-800 pb-20 relative w-full overflow-hidden">
       {/* HERO SECTION */}
       <section className="relative w-full flex items-center justify-center overflow-hidden px-4 py-12 sm:py-24 z-10">
-        {/* Glow backdrop grid */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none" />
-        <div className="absolute top-1/3 left-1/3 w-[500px] h-[250px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
+        {/* Glow backdrop grid (hidden on mobile for rendering speed) */}
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none" />
+        <div className="hidden md:block absolute top-1/3 left-1/3 w-[500px] h-[250px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10 w-full space-y-8">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight font-sans text-slate-900">

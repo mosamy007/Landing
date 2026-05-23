@@ -15,8 +15,8 @@ export default function UnauthorizedPage() {
 
   return (
     <div className="min-h-[75vh] flex items-center justify-center px-4 relative bg-[#f8fafc]">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-500/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Background glow (hidden on mobile for rendering speed) */}
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-md w-full glass-panel rounded-3xl p-8 border border-red-200 shadow-sm space-y-6 text-center bg-white relative z-10">
         
