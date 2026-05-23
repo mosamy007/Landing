@@ -21,13 +21,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://lapstore.vercel.app'),
   title: "Lapstore",
   description: "Explore elite high-performance workstations and premium gaming laptops from Apple, Razer, and ASUS ROG. Connect directly via WhatsApp for swift personalized consultations.",
-  icons: {
-    icon: "/assets/favicon.ico",
-    shortcut: "/assets/favicon-96x96.png",
-    apple: "/assets/apple-touch-icon.png",
-  },
   manifest: "/assets/site.webmanifest",
   openGraph: {
     title: "Lapstore",
