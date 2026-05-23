@@ -42,7 +42,7 @@ const translations: Record<string, Record<Language, string>> = {
   val_support_desc: { en: 'Our technical team is ready to answer spec and pricing questions instantly.', ar: 'فريقنا التقني مستعد للإجابة على جميع الأسئلة التقنية والأسعار على الفور.' },
 
   // Catalog Filters
-  filter_title: { en: 'Catalog Filters', ar: 'تصفية الكتالوج' },
+  filter_title: { en: 'Product Filters', ar: 'تصفية الأجهزة' },
   search_placeholder: { en: 'Search brands, specs, model...', ar: 'ابحث عن العلامات، المواصفات، الطراز...' },
   brand: { en: 'Brand', ar: 'العلامة التجارية' },
   ram: { en: 'RAM Memory', ar: 'الذاكرة العشوائية' },
@@ -55,7 +55,7 @@ const translations: Record<string, Record<Language, string>> = {
   inspect_specs: { en: 'Inspect Specs', ar: 'معاينة المواصفات' },
 
   // Product Details
-  back_catalog: { en: 'Back to Catalog', ar: 'العودة للكتالوج' },
+  back_catalog: { en: 'Back to Products', ar: 'العودة للأجهزة المتوفرة' },
   showcase_price: { en: 'Showcase Price', ar: 'سعر العرض' },
   inquire_whatsapp: { en: 'Purchase / Inquire', ar: 'شراء/استفسار' },
   description: { en: 'Description', ar: 'الوصف' },
@@ -67,11 +67,11 @@ const translations: Record<string, Record<Language, string>> = {
   graphics: { en: 'Graphics', ar: 'كرت الشاشة' },
   display: { en: 'Display', ar: 'الشاشة' },
   not_found: { en: 'Laptop Not Found', ar: 'الحاسوب غير موجود' },
-  not_found_desc: { en: 'The requested laptop configuration could not be found or has been sold out.', ar: 'المواصفات المطلوبة غير موجودة في كتالوجنا حالياً أو تم بيعها.' },
+  not_found_desc: { en: 'The requested laptop configuration could not be found or has been sold out.', ar: 'المواصفات المطلوبة غير موجودة في متجرنا حالياً أو تم بيعها.' },
 
   // Search Results
   search_results: { en: 'SEARCH RESULTS', ar: 'نتائج البحث' },
-  search_desc: { en: 'Search our catalog for high-performance laptops.', ar: 'ابحث في كتالوجنا عن الحواسيب فائقة الأداء.' },
+  search_desc: { en: 'Search our products for high-performance laptops.', ar: 'ابحث في أجهزتنا عن الحواسيب فائقة الأداء.' },
   found_matches: { en: 'Found {count} matching laptops for', ar: 'تم العثور على {count} أجهزة مطابقة لـ' },
   awaiting_search: { en: 'Awaiting Search Input', ar: 'بانتظار كلمة البحث' },
   awaiting_search_desc: { en: 'Please enter keywords in the search bar above.', ar: 'يرجى إدخال كلمات البحث في الشريط العلوي.' },

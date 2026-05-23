@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LapStore - Premium Laptop Showcase & Inquiry Catalog",
+  title: "Lapstore",
   description: "Explore elite high-performance workstations and premium gaming laptops from Apple, Razer, and ASUS ROG. Connect directly via WhatsApp for swift personalized consultations.",
   icons: {
     icon: "/assets/favicon.ico",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   manifest: "/assets/site.webmanifest",
   openGraph: {
-    title: "LapStore - Premium Laptop Catalog",
+    title: "Lapstore",
     description: "Browse curated elite portable systems and inquire instantly via WhatsApp.",
     url: "https://lapstore.vercel.app",
     siteName: "LapStore",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LapStore - Premium Laptop Catalog",
+    title: "Lapstore",
     description: "Browse curated elite portable systems and inquire instantly via WhatsApp.",
     images: ["/assets/logo.png"],
   },

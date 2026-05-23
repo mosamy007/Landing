@@ -121,7 +121,7 @@ function SearchContent() {
             onClick={() => router.push('/products')}
             className="px-5 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 transition-all duration-200"
           >
-            {language === 'ar' ? 'تصفح الكتالوج كاملاً' : 'Browse Full Catalog'}
+            {language === 'ar' ? 'تصفح جميع الأجهزة' : 'Browse All Products'}
           </button>
         </div>
       ) : (
